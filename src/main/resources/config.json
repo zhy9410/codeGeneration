@@ -1,0 +1,122 @@
+{
+  "project": "",
+ /*配置文件路径*/
+  "packagePath": "me.zhengjie.modules.test",
+  /*配置baseBean路径*/
+  "baseBeanPath": "me.zhengjie.modules.base.model.BaseBean",
+  /*配置crudDao路径*/
+  "crudDaoPath":"me.zhengjie.modules.base.persistence.CrudDao",
+  /*配置crudService路径*/
+  "crudServicePath":"me.zhengjie.modules.base.service.CrudService",
+  /*配置abstractCrudService路径*/
+  "abstractCrudServicePath":"me.zhengjie.modules.base.service.AbstractCrudService",
+  /*配置baseController路径*/
+  "baseControllerPath":"me.zhengjie.modules.base.web.BaseController",
+  /*配置返回值respData路径*/
+  "respDataPath":"me.zhengjie.modules.util.RespData",
+  /*配置生成主键uuid工具路径*/
+  "uuidPath":"me.zhengjie.modules.util.UuidUtil",
+  "innerPackagePath": "",
+  "depencePackage":"cn.com.goldenwater",
+  "author": "zhouyang",
+  "projectPom":"parent_pom.ftl",
+  "projectName":"gw-cloud-platform-apiconsole",
+  "parentProject":"gw-cloud-backend",
+  "javaDirection":"src/main/java",
+  "resourceDirection":"src/main/resources",
+  "dbConfig": {
+    "driverClass": "oracle.jdbc.OracleDriver",
+      "username": "HLJHZZ",
+    "password": "HLJHZZ",
+    "url": "jdbc:oracle:thin:@120.79.68.120:1521/orcl"
+  },
+  "modules":[{"module":"api","pomName":"api_pom.xml","includes":"service"},
+    {"module":"client","pomName":"client_pom.xml","includes":"client"},
+    {"module":"service","pomName":"service_pom.xml","includes":"config,controller,service/impl"},
+    {"module":"dao","pomName":"dao_pom.xml","includes":"dao,mappings"},
+    {"module":"model","pomName":"model_pom.xml","includes":"model,param"}],
+  "ignorePrefix": "GW_SYS_REL,GW_SYS,GW_RC_REL,GW_RC,GW_VW_RC,GW_COM,GW_RC_REL",
+  "templateDir": "template\\ssm",
+  "groups": [
+    {
+      "name": "base",
+      "prefix": "BASE"
+    },
+    {
+      "name": "inventory",
+      "prefix": "INVENTORY"
+    },
+    {
+      "name": "mall",
+      "prefix": "MALL"
+    },
+    {
+      "name": "purchase",
+      "prefix": "PURCHASE"
+    },
+    {
+      "name": "sec",
+      "prefix": "SECURITY"
+    },
+    {
+      "name": "site",
+      "prefix": "SITE"
+    },
+    {
+      "name": "log",
+      "prefix": "LOG"
+    }
+  ],
+  "mappings": [
+
+    {
+      "template": "pojo.ftl",
+      "dir": "${project}/${packagePath}/model/${innerPackagePath}",
+      "packagePath": "${packagePath}.model.${innerPackagePath}"
+    },
+
+    {
+      "template": "controller.ftl",
+      "dir": "${project}/${packagePath}/controller/${innerPackagePath}",
+      "packagePath": "${packagePath}.controller.${innerPackagePath}",
+      "ePadding": "Controller"
+    },
+    {
+      "template": "service_impl.ftl",
+      "dir": "${project}/${packagePath}/service/impl/${innerPackagePath}",
+      "packagePath": "${packagePath}.impl.${innerPackagePath}",
+      "ePadding": "ServiceImpl"
+    },
+    {
+      "template": "service_api.ftl",
+      "dir": "${project}/${packagePath}/service/${innerPackagePath}",
+      "packagePath": "${packagePath}.service.${innerPackagePath}",
+      "ePadding": "Service"
+    },
+    {
+      "template": "feign.ftl",
+      "dir": "${project}/${packagePath}/client",
+      "packagePath": "${packagePath}",
+      "ePadding": "Client"
+    },
+    {
+      "template": "param.ftl",
+      "dir": "${project}/${packagePath}/param/${innerPackagePath}",
+      "packagePath": "${packagePath}.param.${innerPackagePath}",
+      "ePadding": "Param"
+    },
+    {
+      "template": "dalMapper.ftl",
+      "dir": "${project}/${packagePath}/dao/${innerPackagePath}",
+      "packagePath": "${packagePath}.dao.${innerPackagePath}",
+      "ePadding": "Dao"
+    },
+    {
+      "template": "mybatis_xml.ftl",
+      "dir": "${project}/${packagePath}/mappings/",
+      "ePadding": "Dao",
+      "packagePath": "${packagePath}",
+      "suffix": "xml"
+    }
+  ]
+}
