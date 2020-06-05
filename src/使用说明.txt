@@ -1,0 +1,4 @@
+1 config/SetupConfig 中设置属性
+2 config.json 中给属性赋值
+3 core/BuildFactory 中getParams() 方法给map赋值
+4 template 对应模板中使用${属性}取出相应的值
